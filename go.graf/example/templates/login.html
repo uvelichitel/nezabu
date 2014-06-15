@@ -1,0 +1,24 @@
+{{ define "header" }}
+	<link href="/static/css/login.css" rel="stylesheet" media="screen">
+{{ end }}
+
+{{ define "title" }}Вход{{ end }}
+
+{{ define "content" }}
+    <div class="container">
+
+      <form class="form-signin" method="post" action="{{reverse "postLogin"}}">
+        <h2 class="form-signin-heading">Вход</h2>
+        {{ range .Messages }}
+			<p class="text-error">{{.}}</p><br />
+		{{end}}
+        <input type="text" class="input-block-level" placeholder="Имя" name="Handle" required>
+        <input type="password" class="input-block-level" placeholder="Пароль" name="PlaintextPassword" required>
+        <label class="checkbox">
+          {{/*<input type="checkbox" value="remember-me"> Remember me*/}}
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Войти</button>
+      </form>
+
+    </div>
+{{ end }}
